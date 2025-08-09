@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=The+Season&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #2a4d1a, #5ea832);
+  color: #f0f5e9;
+  user-select: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 20px 32px;
+  border-bottom: 1px solid rgba(255 255 255 / 0.12);
+  background-color: rgba(41, 77, 27, 0.9);
+  user-select: text;
+  border-radius: 0 0 14px 14px;
+}
+
+.title {
+  font-family: 'The Season', cursive;
+  font-size: 2.6rem;
+  margin: 0;
+  color: #d9f0b7;
+  letter-spacing: 0.06em;
+}
+
+/* área do chat agora ocupa 100% da largura, sem max-width nem margem lateral */
+.chatArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  scroll-behavior: smooth;
+  background-color: rgba(40, 81, 24, 0.75);
+  border-radius: 16px 16px 0 0;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+}
+
+.emptyMsg {
+  margin: auto;
+  color: #a6ca6d;
+  font-style: italic;
+  user-select: none;
+  font-size: 1.1rem;
+}
+
+.message {
+  max-width: 78%;
+  padding: 16px 22px;
+  border-radius: 22px;
+  font-size: 1rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+  user-select: text;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  box-shadow: none;
+  animation: none;
+}
+
+.userMessage {
+  align-self: flex-end;
+  background: #84c050;
+  color: #133100;
+  border-bottom-right-radius: 4px;
+  font-weight: 700;
+}
+
+.botMessage {
+  align-self: flex-start;
+  background: #a6d679;
+  color: #294100;
+  border-bottom-left-radius: 4px;
+  font-weight: 600;
+}
+
+.typing {
+  font-style: italic;
+  opacity: 0.85;
+  user-select: none;
+  color: #d7e7b9;
+  font-weight: 600;
+  animation: none;
+}
+
+/* área do input também ocupa 100% de largura */
+.inputArea {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(33, 70, 16, 0.95);
+  padding: 16px 32px;
+  display: flex;
+  gap: 18px;
+  border-top: 1px solid rgba(217, 240, 183, 0.3);
+  user-select: none;
+  box-sizing: border-box;
+  border-radius: 14px 14px 0 0;
+  box-shadow: none;
+}
+
+/* Input textarea */
+.input {
+  flex-grow: 1;
+  border-radius: 40px;
+  border: none;
+  resize: none;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.4;
+  background: #46782e;
+  color: #ecf3d6;
+  outline: none;
+  max-height: 140px;
+  user-select: text;
+  box-shadow: none;
+  transition: none;
+}
+
+.input::placeholder {
+  color: #c9dca7;
+  font-weight: 400;
+}
+
+.input:focus {
+  box-shadow: none;
+  outline: 1px solid #a7c367;
+}
+
+.sendBtn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #d9f0b7;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #224e04;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+
+.sendBtn:hover,
+.sendBtn:focus {
+  background-color: #b3d26d;
+  outline: none;
+}
+
+.chatArea::-webkit-scrollbar {
+  width: 9px;
+}
+
+.chatArea::-webkit-scrollbar-thumb {
+  background-color: #a7c367cc;
+  border-radius: 6px;
+}
+
+.chatArea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding-bottom: 100px;
+    max-width: 100vw;
+  }
+
+  .header {
+    padding: 16px 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .inputArea {
+    width: 100vw;
+    padding: 12px 20px;
+    gap: 14px;
+    border-radius: 0;
+  }
+
+  .sendBtn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
+  .input {
+    font-size: 1rem;
+    max-height: 120px;
+  }
+}

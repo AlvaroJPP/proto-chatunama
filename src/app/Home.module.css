@@ -1,0 +1,398 @@
+/* Container geral */
+.container {
+  min-height: 100vh;
+  background-image: url('/images/green-texture.jpg');
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 120px;
+  scroll-behavior: smooth;
+}
+
+/* Header fixo */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(40, 167, 69, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+}
+
+.logo {
+  font-family: 'The Season', cursive;
+  font-size: 2rem;
+  cursor: default;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: #d4f1c5;
+  outline: none;
+}
+
+/* Hero */
+.hero {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.heroText h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  color: white;
+}
+
+.heroText p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #e1f0d3;
+}
+
+.button {
+  background-color: #1b5e20;
+  padding: 18px 36px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgb(27 94 32 / 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #2e7d32;
+  box-shadow: 0 8px 16px rgb(46 125 50 / 0.7);
+  outline: none;
+}
+
+/* Hero image */
+.heroImage {
+  flex-shrink: 0;
+  max-width: 480px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.25);
+  overflow: hidden;
+}
+
+.heroImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Apresentação */
+.presentation {
+  margin-top: 100px;
+  max-width: 1200px;
+  width: 90%;
+  text-align: center;
+}
+
+.presentation h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.cards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(255 255 255 / 0.15);
+  backdrop-filter: saturate(180%) blur(12px);
+  border-radius: 16px;
+  padding: 30px 25px;
+  max-width: 320px;
+  flex: 1 1 300px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.3);
+}
+
+.icon {
+  font-size: 3.5rem;
+  margin-bottom: 18px;
+  color: #d4f1c5;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e0f2db;
+}
+
+/* Benefícios */
+.benefits {
+  margin-top: 120px;
+  max-width: 800px;
+  width: 90%;
+  background: rgba(255 255 255 / 0.15);
+  border-radius: 20px;
+  padding: 40px 60px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+}
+
+.benefits h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  color: white;
+}
+
+.benefits ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #d4f1c5;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.benefits li {
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.benefits li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.3rem;
+}
+
+/* Como funciona */
+.howItWorks {
+  margin-top: 120px;
+  max-width: 900px;
+  width: 90%;
+  color: white;
+  text-align: left;
+}
+
+.howItWorks h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.howItWorks ol {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.howItWorks li {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 40px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.howItWorks li::before {
+  content: counter(step-counter);
+  counter-increment: step-counter;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #d4f1c5;
+  color: #2e7d32;
+  font-weight: 700;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  box-shadow: 0 0 8px rgb(212 241 197 / 0.7);
+}
+
+/* Depoimentos */
+.testimonials {
+  margin-top: 120px;
+  max-width: 700px;
+  width: 90%;
+  text-align: center;
+  color: white;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.testimonial {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  position: relative;
+  padding: 20px 30px;
+  background: rgba(40, 167, 69, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.3);
+}
+
+.testimonial footer {
+  margin-top: 12px;
+  font-weight: 700;
+  font-style: normal;
+  color: #d4f1c5;
+}
+
+/* Dots para controle */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.dot,
+.activeDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #d4f1c5;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.activeDot {
+  background-color: white;
+  transform: scale(1.3);
+}
+
+/* Call to Action */
+.callToAction {
+  margin-top: 140px;
+  padding: 60px 20px;
+  background: #1b5e20;
+  width: 100%;
+  color: #d4f1c5;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2rem;
+  border-radius: 0;
+  box-shadow: inset 0 0 20px rgb(255 255 255 / 0.1);
+}
+
+.callToAction button {
+  margin-top: 30px;
+  background-color: #d4f1c5;
+  color: #1b5e20;
+  font-weight: 700;
+  padding: 18px 48px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgb(212 241 197 / 0.7);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.callToAction button:hover,
+.callToAction button:focus {
+  background-color: white;
+  color: #16691a;
+  outline: none;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background-color: #16691a;
+  color: white;
+  text-align: center;
+  padding: 24px 0;
+  font-weight: 600;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -2px 6px rgb(0 0 0 / 0.3);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    margin-top: 120px;
+    gap: 40px;
+  }
+  .heroImage {
+    max-width: 100%;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .benefits ul {
+    max-width: 100%;
+  }
+  .howItWorks ol {
+    max-width: 100%;
+  }
+}

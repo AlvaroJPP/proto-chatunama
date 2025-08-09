@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  gap: 1rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+
+.whatsappButton {
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 8px rgb(37 211 102 / 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.whatsappButton:hover,
+.whatsappButton:focus {
+  background-color: #1ebe57;
+  outline: none;
+}
