@@ -1,20 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=The+Season&display=swap');
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Open Sans', sans-serif,'The Season';
+  background: #1a1a1a;
+  color: #e6edf3;
+  font-family: "Segoe UI", "Arial", sans-serif;
+  margin: 0;
+  min-height: 100vh;
 }
 
 a {
+  color: #8cc84b;
   text-decoration: none;
 }
 
 button {
+  background: #222;
+  color: #8cc84b;
+  border: 2px solid #8cc84b;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #8cc84b;
+  color: #222;
+}
+
+pre,
+code {
+  background: #22272e;
+  color: #8cc84b;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 1rem;
+  font-family: "Fira Mono", "Consolas", monospace;
 }
