@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #1a1a1a; /* fundo escuro */
+  background-image: url('/images/logo-header-desktop.961cb6f4.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 400px auto; /* tamanho pequeno, ajuste o 150px para o que quiser */
+  color: #e0f2e9;
+}
+.chatArea {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  line-height: 1.4;
+  font-size: 1rem;
+  word-break: break-word;
+}
+
+.user {
+  align-self: flex-end;
+  background: #2ecc71;
+  color: #0b1f14;
+  border-bottom-right-radius: 6px;
+}
+
+.bot {
+  align-self: flex-start;
+  background: #202020;
+  color: #aef2c4;
+  border-bottom-left-radius: 6px;
+
+  /* Novas propriedades para controlar quebra */
+  max-width: 45%;          /* limite um pouco menor que 75% para bot */
+  white-space: normal;     /* permite quebrar linha normalmente */
+  overflow-wrap: break-word; /* quebra palavras longas */
+  word-break: break-word;  /* suporte extra para quebrar palavras */
+}
+
+.typing {
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* Campo de input fixo no rodapé */
+.inputWrapper {
+  position: sticky; /* fica preso no final do chat */
+  bottom: 0;
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.4); /* fundo translúcido */
+  backdrop-filter: blur(6px); /* efeito de vidro fosco */
+  z-index: 10;
+}
+
+/* Caixa do input */
+.inputBox {
+  display: flex;
+  align-items: center;
+  width: 50%; /* tamanho centralizado */
+  min-height: 3rem;
+  border-radius: 999px; /* totalmente arredondado */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #1e1e1e;
+  padding: 0 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  gap: 8px;
+}
+
+/* Campo de digitação */
+.contentEditable {
+  flex: 1;
+  max-height: 8rem;
+  overflow-y: auto;
+  outline: none;
+  color: white;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  scrollbar-width: thin; /* scrollbar fina */
+}
+
+/* Placeholder para o contentEditable */
+.contentEditable:empty:before {
+  content: attr(data-placeholder);
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+/* Botão de envio */
+.sendBtn {
+  background: none;
+  border: none;
+  color: #bbb;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.sendBtn:hover {
+  color: white;
+}
+
+/* Botões de ícones laterais (ex: + e microfone) */
+.iconBtn {
+  background: none;
+  border: none;
+  color: #bbb;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.iconBtn:hover {
+  color: white;
+}
+
+.loader {
+  --ballcolor: #f2f2f2;
+  --shadow: 0px 0 #ffffff00;
+  --shadowcolor: #ffffff00;
+  width: 10px;
+  height: 10px;
+  left: -150px;
+  border-radius: 50%;
+  position: relative;
+  color: var(--ballcolor);
+  animation: shadowRolling 2s linear infinite;
+}
+
+@keyframes shadowRolling {
+  0% {
+    box-shadow: var(--shadow),
+        var(--shadow),
+        var(--shadow),
+        var(--shadow);
+  }
+  12% {
+    box-shadow: 100px 0 var(--ballcolor),
+        var(--shadow),
+        var(--shadow), 
+        var(--shadow);
+  }
+  25% {
+    box-shadow: 110px 0 var(--ballcolor),
+        100px 0 var(--ballcolor),
+        var(--shadow), 
+        var(--shadow);
+  }
+  36% {
+    box-shadow: 120px 0 var(--ballcolor), 
+        110px 0 var(--ballcolor), 
+        100px 0 var(--ballcolor), 
+         var(--shadow);
+  }
+  50% {
+    box-shadow: 130px 0 var(--ballcolor),
+        120px 0 var(--ballcolor),
+        110px 0 var(--ballcolor),
+        100px 0 var(--ballcolor);
+  }
+  62% {
+    box-shadow: 200px 0 var(--shadowcolor),
+         130px 0 var(--ballcolor), 
+         120px 0 var(--ballcolor), 
+         110px 0 var(--ballcolor);
+  }
+  75% {
+    box-shadow: 200px 0 var(--shadowcolor),
+        200px 0 var(--shadowcolor),
+        130px 0 var(--ballcolor), 
+        120px 0 var(--ballcolor);
+  }
+  87% {
+    box-shadow: 200px 0 var(--shadowcolor), 
+        200px 0 var(--shadowcolor), 
+        200px 0 var(--shadowcolor), 
+        130px 0 var(--ballcolor);
+  }
+  100% {
+    box-shadow: 200px 0 var(--shadowcolor), 
+        200px 0 var(--shadowcolor),
+        200px 0 var(--shadowcolor),
+        200px 0 var(--shadowcolor);
+  }
+}
+
+.loaderWrapper {
+  align-self: flex-start;
+  background: #202020;
+  border-radius: 18px;
+  padding: 12px 20px;
+  display: inline-flex;
+  min-width: 80px;  /* aumentei para caber a animação */
+  max-width: 120px; /* limite para não ficar enorme */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* ESSENCIAL: corta o que vaza */
+  position: relative;
+}
