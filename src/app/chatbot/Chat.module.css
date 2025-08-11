@@ -70,7 +70,8 @@ html {
 
 /* Cada item da lista */
 .chatListItem {
-  background-color: #333;
+  border-radius: 10px;
+  background-color: #101925;
   padding: 12px 16px;
   cursor: pointer;
   user-select: none;
@@ -79,6 +80,7 @@ html {
   text-overflow: ellipsis;
   overflow: hidden;
   margin-bottom: 2px;
+  border: rgb(69, 107, 11) 2px solid;
 
   display: flex;
   /* torna um flex container */
@@ -94,7 +96,7 @@ html {
 
 /* Fundo da barra de rolagem (faixa) */
 .chatList::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #161b22;
   /* cor do fundo da faixa */
   border-radius: 4px;
 }
@@ -116,6 +118,30 @@ html {
 .chatListItem:hover {
   background-color: #2ecc71;
   color: #0b1f14;
+}
+.chatArea::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Fundo da barra de rolagem (faixa) */
+.chatArea::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  /* cor do fundo da faixa */
+  border-radius: 4px;
+}
+
+/* Polegar da barra de rolagem (parte que você arrasta) */
+.chatArea::-webkit-scrollbar-thumb {
+  background-color: #2ecc71;
+  /* cor do polegar */
+  border-radius: 4px;
+  border: 2px solid #1a1a1a;
+  /* cria uma "borda" entre polegar e faixa */
+}
+
+/* Polegar ao passar o mouse */
+.chatArea::-webkit-scrollbar-thumb:hover {
+  background-color: #27ae60;
 }
 
 /* Container do chat principal */
@@ -536,5 +562,5 @@ html {
   pointer-events: none;
   z-index: 1;
 
-  filter: sepia(1) saturate(40) hue-rotate(40deg) brightness(0.9);
+  filter: sepia(1) saturate(40) hue-rotate(30deg) brightness(1);
 }
