@@ -1,3 +1,7 @@
+
+
+
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -207,24 +211,29 @@ export default function ChatPage() {
       </nav>
 
       <section className={styles.chatContainer}>
-        <div className={styles.chatArea}>
-          {messages.map((m) => (
-            <div
-              key={m.id}
-              className={`${styles.message} ${m.role === "user" ? styles.user : styles.bot
-                }`}
-            >
-              {m.content}
-            </div>
-          ))}
-          {isTyping && (
-            <div className={styles.loaderWrapper}>
-              <div className={styles.loader} />
-            </div>
-          )}
-          <div ref={endRef} />
-        </div>
-
+  <div className={styles.chatArea}>
+    <img
+    src="images/logo-header-desktop.961cb6f4.png"
+    alt="Logo"
+    className={styles.logoCentered}
+  />
+    {messages.map((m) => (
+      <div
+        key={m.id}
+        className={`${styles.message} ${m.role === "user" ? styles.user : styles.bot}`}
+      >
+        {m.content}
+      </div>
+    ))}
+    {isTyping && (
+      <div className={styles.loaderWrapper}>
+        <div className={styles.loader} />
+      </div>
+    )}
+    <div ref={endRef} />
+    
+  </div>
+  
         <div className={styles.inputWrapper}>
           <div className={styles.inputBox}>
             <div
@@ -254,8 +263,11 @@ export default function ChatPage() {
             </button>
           </div>
         </div>
-      </section>
+
+
+</section>
     </main>
   );
 }
+
 
