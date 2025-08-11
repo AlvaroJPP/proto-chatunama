@@ -185,7 +185,7 @@ export default function ChatPage() {
 
           <button className={styles.newChatBtn2}>
             <svg
-              className={styles.svgIcon}
+              className={styles.svgIcon2}
               viewBox="0 0 512 512"
               height="1em"
               xmlns="http://www.w3.org/2000/svg"
