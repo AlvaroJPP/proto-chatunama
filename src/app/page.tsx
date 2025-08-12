@@ -23,6 +23,8 @@ const testimonials = [
   },
 ];
 
+//COMIT ATUAL
+
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
