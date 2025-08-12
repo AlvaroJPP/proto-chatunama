@@ -1,7 +1,3 @@
-
-
-
-
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -20,6 +16,22 @@ export default function ChatPage() {
   const [isEmpty, setIsEmpty] = useState(true);
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLDivElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Fecha o menu ao clicar fora (opcional)
+  useEffect(() => {
+    if (!menuOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (
+        !(e.target as HTMLElement).closest(`.${styles.sidebar}`) &&
+        !(e.target as HTMLElement).closest(`.${styles.hamburger}`)
+      ) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [menuOpen]);
 
   // Scroll automático quando chegam mensagens
   useEffect(() => {
@@ -149,27 +161,37 @@ export default function ChatPage() {
 
   return (
     <main className={styles.appContainer}>
-      <nav className={styles.sidebar}>
+      {/* Overlay escuro */}
+      <div
+        className={`${styles.sidebarOverlay} ${menuOpen ? styles.open : ""}`}
+        onClick={() => setMenuOpen(false)}
+      />
 
+      {/* Botão hamburger só no mobile */}
+      <button
+        className={styles.hamburger}
+        onClick={() => setMenuOpen(true)}
+        aria-label="Abrir menu"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      {/* Sidebar vira drawer no mobile */}
+      <nav
+        className={`${styles.sidebar} ${menuOpen ? styles.sidebarOpen : ""}`}
+      >
+        {/* Removido o botão de fechar */}
         <div className={styles.topButtons}>
-  <div className={styles.topButtons}>
-  <button
-    className={styles.iaButton}
-    onClick={() => window.location.href = "/"}
-    aria-label="Voltar para home"
-  >
-    IAra
-  </button>
-
-  <button
-    className={styles.closeButton}
-    onClick={() => window.location.href = "/"}
-    aria-label="Fechar e voltar para home"
-  >
-    ×
-  </button>
-</div>
-</div>
+          <button
+            className={styles.iaButton}
+            onClick={() => (window.location.href = "/")}
+            aria-label="Voltar para home"
+          >
+            IAra
+          </button>
+        </div>
         <div className={styles.buttonRow}>
           <button className={styles.newChatBtn}>
             <svg
@@ -190,7 +212,7 @@ export default function ChatPage() {
               height="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
+              <path d="M256 512A256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
             </svg>
             Novo Chat
           </button>
@@ -199,7 +221,6 @@ export default function ChatPage() {
           type="text"
           placeholder="Buscar chat..."
           className={styles.searchInput}
-        // Você pode implementar filtro aqui
         />
         <div className={styles.chatList}>
           {chatList.map((chat) => (
@@ -209,31 +230,32 @@ export default function ChatPage() {
           ))}
         </div>
       </nav>
-
+      {/* Conteúdo principal */}
       <section className={styles.chatContainer}>
-  <div className={styles.chatArea}>
-    <img
-    src="images/logo-header-desktop.961cb6f4.png"
-    alt="Logo"
-    className={styles.logoCentered}
-  />
-    {messages.map((m) => (
-      <div
-        key={m.id}
-        className={`${styles.message} ${m.role === "user" ? styles.user : styles.bot}`}
-      >
-        {m.content}
-      </div>
-    ))}
-    {isTyping && (
-      <div className={styles.loaderWrapper}>
-        <div className={styles.loader} />
-      </div>
-    )}
-    <div ref={endRef} />
-    
-  </div>
-  
+        <div className={styles.chatArea}>
+          <img
+            src="images/logo-header-desktop.961cb6f4.png"
+            alt="Logo"
+            className={styles.logoCentered}
+          />
+          {messages.map((m) => (
+            <div
+              key={m.id}
+              className={`${styles.message} ${
+                m.role === "user" ? styles.user : styles.bot
+              }`}
+            >
+              {m.content}
+            </div>
+          ))}
+          {isTyping && (
+            <div className={styles.loaderWrapper}>
+              <div className={styles.loader} />
+            </div>
+          )}
+          <div ref={endRef} />
+        </div>
+
         <div className={styles.inputWrapper}>
           <div className={styles.inputBox}>
             <div
@@ -255,19 +277,16 @@ export default function ChatPage() {
                   setIsEmpty(true);
                 }
               }}
-              className={`${styles.sendBtn} ${isEmpty ? styles.disabled : styles.active
-                }`}
+              className={`${styles.sendBtn} ${
+                isEmpty ? styles.disabled : styles.active
+              }`}
               disabled={isEmpty}
             >
               ➤
             </button>
           </div>
         </div>
-
-
-</section>
+      </section>
     </main>
   );
 }
-
-
